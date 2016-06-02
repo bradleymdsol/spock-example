@@ -33,7 +33,10 @@ class BasicExampleTest extends Specification {
 
     def "chained failure - nice output"() {
         given:
-        def solarSystems = [name: "solar system", planets: ["mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune"]]
+        def solarSystems = [
+                name   : "solar system",
+                planets: ["mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune"]
+        ]
 
         expect:
         solarSystems.planets[3] == "earth"
