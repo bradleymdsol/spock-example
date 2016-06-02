@@ -23,15 +23,6 @@ class BasicExampleTest extends Specification {
         groovy.value == "banana"
     }
 
-    def "can test java"() {
-        given:
-        def java = new MyJavaClass()
-
-        expect:
-        java.value == "Hello World!"
-        java.getValue() == "Hello World!"
-    }
-
     def "this fails - nice output"() {
         given:
         def java = new MyJavaClass()
