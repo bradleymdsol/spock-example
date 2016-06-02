@@ -5,9 +5,9 @@ import spock.lang.Specification
 class MockExampleTest extends Specification {
     def composed = Mock(Composed)
     def composed2 = Mock(Composed)
-    def writter = Mock(PrintWriter)
+    def writer = Mock(PrintWriter)
 
-    def composer = new Composer(composed, composed2, writter)
+    def composer = new Composer(composed, composed2, writer)
 
     def "verify"(){
         when:
@@ -26,6 +26,14 @@ class MockExampleTest extends Specification {
         0 * composed2._
     }
 
+    def "verify multiple times"(){
+        when:
+        composer.executeLots();
+
+        then:
+        5 * composed2.run() //or
+    }
+
     def "failure"(){
         when:
         composer.execute();
@@ -42,7 +50,7 @@ class MockExampleTest extends Specification {
         composer.write()
 
         then:
-        1 * writter.write("Hello")
+        1 * writer.write("Hello")
     }
 
 }

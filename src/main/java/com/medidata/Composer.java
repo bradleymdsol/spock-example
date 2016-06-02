@@ -6,12 +6,12 @@ public class Composer {
 
   private Composed composed1;
   private Composed composed2;
-  private PrintWriter writter;
+  private PrintWriter writer;
 
-  public Composer(Composed composed1, Composed composed2, PrintWriter writter) {
+  public Composer(Composed composed1, Composed composed2, PrintWriter writer) {
     this.composed1 = composed1;
     this.composed2 = composed2;
-    this.writter = writter;
+    this.writer = writer;
   }
 
   public void execute() {
@@ -19,6 +19,12 @@ public class Composer {
   }
 
   public void write() {
-    writter.write(composed1.run());
+    writer.write(composed1.run());
+  }
+
+  public void executeLots() {
+    for (int i = 0; i < 5; i++) {
+      composed2.run();
+    }
   }
 }
