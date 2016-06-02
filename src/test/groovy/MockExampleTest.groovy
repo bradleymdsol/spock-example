@@ -10,7 +10,7 @@ class MockExampleTest extends Specification {
 
     def composer = new Composer(composed, composed2, writer)
 
-    @IgnoreRest
+//    @IgnoreRest
     def "verify"(){
         when:
         composer.execute();
@@ -63,6 +63,16 @@ class MockExampleTest extends Specification {
         1 * writer.write("Hello")
     }
 
-    // creation time
+    def "sequence of values"(){
+        given:
+        composed.run() >>> ["Hello", "Everyone"]
+
+        when:
+        composer.writeMore()
+
+        then:
+        1 * writer.write("Hello")
+        1 * writer.write("Everyone")
+    }
 
 }

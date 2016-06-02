@@ -22,6 +22,11 @@ public class Composer {
     writer.write(composed1.run());
   }
 
+  public void writeMore() {
+    writer.write(composed1.run());
+    writer.write(composed1.run());
+  }
+
   public void executeLots() {
     for (int i = 0; i < 5; i++) {
       composed2.run();
